@@ -1,0 +1,49 @@
+<ons-page ng-controller="FeedPluginDetailController" sliding-menu-ignore="true">
+    
+    <ons-toolbar>
+    <div class="left" style="
+vertical-align: top;
+display: inline-block;
+line-height: 51px;
+height: 51px;
+">
+
+    <ons-back-button>Voltar</ons-back-button></div>
+    <div class="center" ng-bind-html="item.title"></div>
+    <div class="right">
+    <ons-toolbar-button ng-click="shareFeed()"><ons-icon icon="share-alt" style="vertical-align: -4px; font-size: 20px;"></ons-icon></ons-toolbar-button>
+    </div>
+    </ons-toolbar>
+
+
+    <video id="video" ng-src="{{getTrustedResourceUrl(mediaObject(item).url)}}" controls autoplay ng-if="hasVideo(item)"></video>
+    
+    <audio id="audio" ng-src="{{getTrustedResourceUrl(mediaObject(item).url)}}" controls autoplay ng-if="hasAudio(item)"></audio>
+    
+    <img ng-src="{{getTrustedResourceUrl(mediaObject(item).url)}}" ng-if="!hasVideo(item) && !hasAudio(item)"></img>
+
+    <section style="padding: 10px;">
+
+        <h2 class="title" ng-bind-html="item.title"></h2>
+
+        <div class="feed-date">
+        <ons-icon icon="clock-o"></ons-icon> Publicado em {{item.publishedDate }}
+        </div>
+        <p class="feed-content" ng-bind-html="item.content"></p>
+        
+        <p class="feed-categories" ng-show="{{item.categories.length}}"><ons-icon icon="tags"></ons-icon>
+        <span ng-repeat="category in item.categories">{{category}}{{$last ? '' : ', '}}</span>
+        </p>
+        
+        <ons-button modifier="outline" class="button-share" ng-click="shareFeed()">
+        <ons-icon icon="share-alt"></ons-icon> Compartilhe
+        </ons-button>
+
+        <!-- Open the post using the InAppBrowser plugin (org.apache.cordova.inappbrowser) -->
+        <ons-button modifier="large" ng-click="loadURL()">
+        Leia mais
+        </ons-button>
+
+    </section>
+    
+</ons-page>

@@ -1,0 +1,23 @@
+<ons-page ng-controller="ContactController">
+    
+    <ons-toolbar>
+    <div class="left">
+      <ons-toolbar-button ng-click="menu.toggle()">
+        <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
+      </ons-toolbar-button>
+    </div>
+    <div class="center">Contact</div>
+    </ons-toolbar>
+
+    <section style="padding: 10px">
+
+        <input type="text" class="text-input" placeholder="Subject" ng-model="subject" style="width:100%; margin-bottom:10px;">
+
+        <textarea class="textarea" rows="10" placeholder="Message" ng-model="message" style="width:100%; margin-bottom:10px;"></textarea>
+
+        <ons-button modifier="large" ng-click="submitForm()">
+        Send Message
+        </ons-button>
+    </section>  
+
+</ons-page>

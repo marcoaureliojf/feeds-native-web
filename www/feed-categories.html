@@ -1,0 +1,44 @@
+<ons-navigator>
+    <ons-page>
+        <ons-toolbar fixed-style>
+        <div class="left">
+        <ons-toolbar-button ng-click="menu.toggle()">
+        <ons-icon icon="ion-navicon" size="32px" fixed-width="false"></ons-icon>
+        </ons-toolbar-button>
+        </div>
+        <div class="center">IN JF</div>
+        </ons-toolbar>
+
+
+        <div class="profile-card">
+
+            <ons-icon icon="rss" class="profile-logo"></ons-icon>
+            <div class="profile-name">IN JF</div>
+            <div class="profile-id"></div>
+            <div class="profile-desc">Feed de notícias regionais</div>
+
+        </div>
+        
+        <ons-list-header>Categorias</ons-list-header>
+        
+        <ons-list ng-controller="FeedPluginCategoriesController">
+            <ons-list-item modifier="chevron" class="item" ng-repeat="category in categories" ng-click="showDetail($index)">
+                <ons-row>
+                    
+                    <ons-col width="60px"> 
+                    <div class="item-thum"><ons-icon icon="{{category.icon}}"></ons-icon></div>
+                    </ons-col>
+                    
+                    <ons-col>
+                    <header>
+                    <span class="item-title">{{category.title}}</span>
+                    </header>
+                    <p class="item-desc">{{category.description}}</p>
+                    </ons-col>
+                    
+                </ons-row>                          
+            </ons-list-item>
+        </ons-list>
+        
+    </ons-page>
+</ons-navigator>

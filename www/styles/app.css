@@ -1,0 +1,109 @@
+h2.title { margin:0; }
+
+a { color:#1284ff; text-decoration:none; }
+
+img { max-width: 100%; height:auto; }
+
+.feed-content { padding:5px 0; }
+
+.feed-date { font-size:12px; }
+
+.feed-categories { font-size:12px; margin:20px 0; }
+
+.feed-categories ons-icon { font-size:12px; }
+
+.button-share { margin:0 0 25px 0; }
+
+.status-message { padding:10px 0; }
+
+/* List Items */
+.item { padding: 10px; line-height: 1; }
+
+.item-thum { font-size:30px; width: 50px; height: 50px; }
+
+.item-title { font-size: 15px; font-weight: 500; }
+
+.item-desc { font-size: 14px; color: #666; line-height: 1.3; margin: 4px 0 0 0; padding: 0 30px 0 0; }
+
+.page--menu-page__background {
+  background-color: #333;
+}
+
+.page--menu-page__content {
+  color: white;
+}
+
+.menu-close,
+.menu-close > .toolbar-button {
+  color: #999;
+}
+
+.menu-list,
+.menu-item:first-child,
+.menu-item:last-child,
+.menu-item {
+  background-color: transparent;
+  background-image: none !important;
+  border-color: transparent;
+  color: #fff;
+}
+
+.menu-item {
+  padding: 0 0 0 20px;
+  line-height: 52px;
+  height: 52px;
+  text-shadow: rgba(0, 0, 0, 0.4) 0px 1px 0px;
+}
+
+.menu-item:active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-notification {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 14px;
+  height: 16px;
+  line-height: 16px;
+  min-width: 16px;
+  font-weight: 600;
+}
+
+.bottom-menu-list,
+.bottom-menu-item:first-child,
+.bottom-menu-item:last-child,
+.bottom-menu-item {
+  border-color: #393939;
+  background-color: transparent;
+  background-image: none !important;
+  color: #ccc;
+}
+
+.bottom-menu-item:active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Profile */
+.profile-card { width: 100%; text-align: center; color: white; padding: 30px 0; line-height: 1.4; background-color: #1284ff; text-shadow: rgba(0, 0, 0, 0.4) 0px 1px 0px; }
+
+.profile-logo { font-size: 30px; border: 1px solid #ffffff; border-radius: 100%; -webkit-border-radius:100%; padding: 10px 13px; }
+
+.profile-name { margin: 20px 0 0 0; font-weight: 600; font-size: 17px; }
+
+.profile-id { margin: 0 0 5px 0; font-size: 14px; opacity: 0.6; }
+
+.profile-desc { font-size: 15px; opacity: 0.6; width: 90%; text-align: center; margin: 0 auto; }
+
+/* Thumbnail */
+.thumbnail-container, .thumbnail { width: 80px; height: 80px; border-radius: 4px; -webkit-border-radius: 4px; background:#cccccc; }
+
+.thumbnail-container { margin-right:15px;}
+
+/* Media */
+video, audio { width:100%; max-width:100%; box-sizing: border-box; display: inline-block; }
+
+audio { margin-top:10px; }
+/* Fix for Onsen 1.2.1 */
+.navigation-bar__title { text-overflow: ellipsis; overflow: hidden; height: auto; }
+
+.navigation-bar--android__center { max-width: 50%; overflow: hidden; text-overflow: ellipsis; }

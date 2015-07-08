@@ -1,0 +1,38 @@
+    {
+      "id": 1,
+      "title": "Notícias",
+      "description": "Fontes de notícias de Juiz de Fora e região.",
+      "icon": "ion-document-text",
+      "items": [
+        {
+          "id": 1,
+          "title": "A Voz da Serra",
+          "description": "",
+          "url": "http://avozdaserra.com.br/rss"
+        },
+        {
+          "id": 2,
+          "title": "Friburgo Notícias",
+          "description": "",
+          "url": "http://www.frinoticias.com.br/feeds/posts/default"
+        },
+        {
+          "id": 3,
+          "title": "G1 - Região Serrana",
+          "description": "",
+          "url": "http://g1.globo.com/dynamo/rj/regiao-serrana/rss2.xml"
+        },
+        {
+          "id": 4,
+          "title": "Acontece em Petrópolis",
+          "description": "",
+          "url": "http://www.aconteceempetropolis.com.br/feed/"
+        },
+        {
+          "id": 5,
+          "title": "Petrópolis News",
+          "description": "",
+          "url": "http://petropolisnews.com.br/?feed=rss2"
+        }
+      ]
+    }
