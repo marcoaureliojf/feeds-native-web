@@ -1,5 +1,5 @@
 
-<ons-page ng-controller="FeedPluginMasterController">
+<ons-page ng-controller="FeedPluginMasterController" ng-init="init()">
     
     <ons-toolbar>
     <div class="left">
@@ -7,10 +7,10 @@
                 <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
             </ons-toolbar-button>
     </div>
-    <div class="center" ng-bind-html="title"></div>
+    <div class="center" ng-bind-html="title" size="70%" fixed-width="true"></div>
     <div class="right">
-            <ons-toolbar-button ng-click="menu.toggle()">
-                <ons-icon icon="ion-android-more" size="20px" fixed-width="false"></ons-icon>
+            <ons-toolbar-button ng-click="show(this, $event)">
+                <ons-icon icon="ion-android-more" size="20px" fixed-width="false" ></ons-icon>
             </ons-toolbar-button>
     </div>
     </ons-toolbar>
@@ -47,24 +47,8 @@
     
     <div style="padding: 0 10px 10px 10px;">
     <ons-button modifier="large" ng-show="hasMoreItems()" ng-click="showMoreItems()">Mostrar mais</ons-button>
-    </div>
-    <style>
-.top{
-     position: fixed;
-     top:52px;
-     left: 10px;
-     bottom: 0px;
-     right: 10px;
-}
-</style>
-
-<script type="text/ons-template" id="popover.html">
-  <ons-popover direction="up down" cancelable>
-    <div style="text-align: center; opacity: 0.5;">
-      <p>This is a popover!</p>
-      <p><small>Click the background to remove the popover.</small></p>
-    </div>
-  </ons-popover>
-</script>
+    </div>   
 
 </ons-page>
+
+ 

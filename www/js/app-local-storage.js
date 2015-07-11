@@ -2,18 +2,18 @@ angular.module('appLocalStorage', [])
 
 .factory('FeedStorage', function() {
   return {
-    get: function() {
-      var feeds = window.localStorage[feeds.feed.title];
+    get: function(title) {
+      var feeds = window.localStorage[title];
       if(feeds) {
         return angular.fromJson(feeds);
       }
       return {};
     },
-    save: function(feeds) {
-      window.localStorage[feeds.feed.title] = angular.toJson(feeds);
+    save: function(feeds, title) {
+      window.localStorage[title] = angular.toJson(feeds);
     },
-    clear: function() {
-      window.localStorage.removeItem(feeds.feed.title);
+    clear: function(feeds, title) {
+      window.localStorage.removeItem(title);
     }
   }
 })

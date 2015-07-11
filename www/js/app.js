@@ -55,7 +55,28 @@ var app = {
 
 (function(){
     'use strict';
-    var module = angular.module('sensationFeedPlugin', ['onsen', 'sensationFeedPlugin.data', 'ngSanitize','appLocalStorage', 'LocalStorageModule']);
+    var module = angular.module('sensationFeedPlugin', ['onsen', 'sensationFeedPlugin.data', 'ngSanitize','appLocalStorage', 'LocalStorageModule'])
+    .service('isRefresh', function () {
+        var refresh = false;
+        return {
+            getRefresh: function () {
+                return refresh;
+            },
+            setRefresh: function(value) {
+                refresh = value;
+            }
+        };
+    }).service('CanalTitleIndex', function () {
+        var index = "";
+        return {
+            getIndex: function () {
+                return index;
+            },
+            setIndex: function(value) {
+                index = value;
+            }
+        };
+    });
     
     document.addEventListener('deviceready', function() {
         angular.bootstrap(document, ['sensationFeedPlugin']);       
@@ -81,7 +102,8 @@ var app = {
     });
     
     // Feed Plugin: Category Controller
-    module.controller('FeedPluginCategoryController', function($scope, $http, FeedPluginData) {
+    module.controller('FeedPluginCategoryController', function($scope, $http, FeedPluginData, FeedStorage, isRefresh, CanalTitleIndex) {
+
 
         $http({method: 'GET', url: FeedPluginData.url}).
         success(function(data, status, headers, config) {
@@ -94,23 +116,29 @@ var app = {
         $scope.showDetail = function(index) {
         var selectedItem = $scope.items[index];
         FeedPluginData.selectedItem = selectedItem;
+        isRefresh.setRefresh(false);
+        CanalTitleIndex.setIndex(selectedItem.title);
         $scope.ons.navigator.pushPage('feed-master.html', {title : selectedItem.title});
-        }
+        } 
+
+
 
     });
     
     // Feed Plugin: Master Controller
-    module.controller('FeedPluginMasterController', function($scope, $http, FeedPluginData, FeedStorage) {
+    module.controller('FeedPluginMasterController', function($scope, $http, FeedPluginData, FeedStorage, isRefresh, CanalTitleIndex) {
         
         $scope.badges = "";
         $scope.msg = "Carregando...";
         $scope.feeds = "";
 
+        if (isRefresh.getRefresh()) {
+
         $http({method: 'JSONP', url: 'http://ajax.googleapis.com/ajax/services/feed/load?v=2.0&num=50&callback=JSON_CALLBACK&q=' + encodeURIComponent(FeedPluginData.selectedItem.url)}).
         success(function(data, status, headers, config) {
             
             if (!data.responseData) {
-                $scope.data = FeedStorage.get();
+                $scope.data = FeedStorage.get(CanalTitleIndex.getIndex());
                 $scope.msg = "Não foi possível obter dados. Visualizando feeds Off-Line";
                 // Carrega dados para leitura offline
                 $scope.title = $scope.data.feed.title;
@@ -122,10 +150,8 @@ var app = {
                 $scope.description = data.responseData.feed.description;
                 $scope.link = data.responseData.feed.link;
                 $scope.feeds = data.responseData.feed.entries;
-                
                 // Save feeds to the local storage
-                FeedStorage.save(data.responseData);
-                
+                FeedStorage.save(data.responseData, CanalTitleIndex.getIndex());
                 $scope.msg = "";
             }
 
@@ -134,9 +160,21 @@ var app = {
         $scope.msg = 'Poxa, aconteceu algo de errado:' + status; 
         });
 
+        }else{
+                $scope.data = FeedStorage.get(CanalTitleIndex.getIndex());
+                $scope.msg = "Não foi possível obter dados. Visualizando feeds Off-Line";
+                // Carrega dados para leitura offline
+                $scope.title = $scope.data.feed.title;
+                $scope.description = $scope.data.feed.description;
+                $scope.link = $scope.data.feed.link;
+                $scope.feeds = $scope.data.feed.entries;
+                $scope.msg = "";
+        };
+
         var page = 1;
         // Define the number of the feed results in the page
         var pageSize = 20;
+
 
         $scope.paginationLimit = function(data) {
         return pageSize * page;
@@ -153,12 +191,22 @@ var app = {
         $scope.showDetail = function(index) {
         var selectedItem = $scope.feeds[index];
         FeedPluginData.selectedItem = selectedItem;
+        isRefresh.setRefresh(false);
+        CanalTitleIndex.setIndex(selectedItem.title);
         $scope.ons.navigator.pushPage('feed-detail.html', selectedItem);
-        }
+        };
+        
+        $scope.loadFeed = function(index, action) {
+        var selectedItem = $scope.feeds[index];
+        FeedPluginData.selectedItem = selectedItem;
+        isRefresh.setRefresh(false);
+        CanalTitleIndex.setIndex(selectedItem.title);
+        $scope.ons.navigator.pushPage('feed-detail.html', selectedItem);
+        };
         
 		$scope.mediaObject = function(item) {
 			return (item && item.mediaGroups) ? item.mediaGroups[0].contents[0] : {url:''};
-		}
+		};
 
 		$scope.hasVideo = function(item) {
 			var media = $scope.mediaObject(item);
@@ -166,14 +214,36 @@ var app = {
             //JAVASCRIPT: condition ? val1 : val2
             //return media.type ? (media.type == "video/mp4") : (media.url ? (media.url.indexOf(".mp4") != -1) : false);
 			return media.type ? (media.type == "video/mp4") : false;
-		}
+		};
         
 		$scope.hasAudio = function(item) {
 			var media = $scope.mediaObject(item);
             
             //JAVASCRIPT: condition ? val1 : val2
 			return media.type ? (media.type == "audio/mp3") : false;
-		}
+		};
+
+        $scope.refresh = function(index) {
+        var selectedItem = $scope.items[index];
+        FeedPluginData.selectedItem = selectedItem;
+        isRefresh.setRefresh(true);
+        CanalTitleIndex.setIndex(selectedItem.title);
+        $scope.ons.navigator.pushPage('feed-master.html', {title : selectedItem.title});
+        };
+
+
+
+        ons.createPopover('popover.html').then(function(popover) {
+        $scope.popover = popover;
+        });
+  
+        $scope.show = function(e, $event) {
+        $scope.popover.show($event.target);
+        };
+
+        $scope.hide = function(e, $event) {
+        $scope.popover.hide($event.target);
+        };
 
         
     });
