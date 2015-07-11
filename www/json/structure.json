@@ -12,25 +12,25 @@
         },
         {
           "id": 2,
-          "title": "Friburgo Notícias",
+          "title": "Friburgo Noticias",
           "description": "",
           "url": "http://www.frinoticias.com.br/feeds/posts/default"
         },
         {
           "id": 3,
-          "title": "G1 - Região Serrana",
+          "title": "G1 - Regiao Serrana",
           "description": "",
           "url": "http://g1.globo.com/dynamo/rj/regiao-serrana/rss2.xml"
         },
         {
           "id": 4,
-          "title": "Acontece em Petrópolis",
+          "title": "Acontece em Petropolis",
           "description": "",
           "url": "http://www.aconteceempetropolis.com.br/feed/"
         },
         {
           "id": 5,
-          "title": "Petrópolis News",
+          "title": "Petropolis News",
           "description": "",
           "url": "http://petropolisnews.com.br/?feed=rss2"
         }
