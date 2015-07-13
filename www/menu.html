@@ -3,7 +3,7 @@
     <ons-toolbar modifier="transparent"></ons-toolbar>
 
     <ons-list class="menu-list">
-    <ons-list-item class="menu-item" ng-repeat="item in items" ng-click=" showDetail($index); menu.toggle()">
+    <ons-list-item class="menu-item" ng-repeat="item in items" ng-click="fechar(); showDetail($index); menu.toggle()">
         <ons-row>
             <ons-col width="60px"> 
                 <div class="item-thum">
@@ -33,8 +33,6 @@
     </ons-list>
 
     <br/>
-
-
 
     <ons-list class="bottom-menu-list">
     <ons-list-item class="bottom-menu-item" ng-click="menu.setMainPage('about.html', {closeMenu: true})">

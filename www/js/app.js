@@ -32,7 +32,7 @@ var app = {
 
             e.preventDefault();
             var $this = $(this); 
-            var target = /*$this.data('inAppBrowser') ||*/ '_blank';
+            var target = /*$this.data('inAppBrowser') ||*/ '_system';
 
             window.open($this.attr('href'), target);
 
@@ -119,14 +119,21 @@ var app = {
         isRefresh.setRefresh(false);
         CanalTitleIndex.setIndex(selectedItem.title);
         $scope.ons.navigator.pushPage('feed-master.html', {title : selectedItem.title});
-        } 
+        };
+  
+        $scope.fechar = function(){
+            if ($scope.ons.navigator.getCurrentPage()=='feed-master.html') {
+                $scope.ons.navigator.popPage('feed-master.html');
+            };
+            
+        }; 
 
 
 
     });
     
     // Feed Plugin: Master Controller
-    module.controller('FeedPluginMasterController', function($scope, $http, FeedPluginData, FeedStorage, isRefresh, CanalTitleIndex) {
+    module.controller('FeedPluginMasterController', function($scope, $http, $timeout, FeedPluginData, FeedStorage, isRefresh, CanalTitleIndex) {
         
         $scope.badges = "";
         $scope.msg = "Carregando...";
@@ -162,14 +169,31 @@ var app = {
 
         }else{
                 $scope.data = FeedStorage.get(CanalTitleIndex.getIndex());
-                $scope.msg = "Não foi possível obter dados. Visualizando feeds Off-Line";
-                // Carrega dados para leitura offline
-                $scope.title = $scope.data.feed.title;
-                $scope.description = $scope.data.feed.description;
-                $scope.link = $scope.data.feed.link;
-                $scope.feeds = $scope.data.feed.entries;
-                $scope.msg = "";
+                if (!$scope.data.feed) {
+                    $http({method: 'JSONP', url: 'http://ajax.googleapis.com/ajax/services/feed/load?v=2.0&num=50&callback=JSON_CALLBACK&q=' + encodeURIComponent(FeedPluginData.selectedItem.url)}).
+                    success(function(data, status, headers, config) {
+                    $scope.title = data.responseData.feed.title;
+                    $scope.description = data.responseData.feed.description;
+                    $scope.link = data.responseData.feed.link;
+                    $scope.feeds = data.responseData.feed.entries;
+                    // Save feeds to the local storage
+                    FeedStorage.save(data.responseData, CanalTitleIndex.getIndex());
+                    $scope.msg = "";
+                    }).
+                    error(function(data, status, headers, config) {
+                    $scope.msg = 'Poxa, aconteceu algo de errado:' + status; 
+                    });
+                    }else{
+                    // Carrega dados para leitura offline
+                    $scope.title = $scope.data.feed.title;
+                    $scope.description = $scope.data.feed.description;
+                    $scope.link = $scope.data.feed.link;
+                    $scope.feeds = $scope.data.feed.entries;
+                    $scope.msg = "";
+                }
         };
+
+        var paginaSelecionada = FeedPluginData.selectedItem;
 
         var page = 1;
         // Define the number of the feed results in the page
@@ -223,6 +247,28 @@ var app = {
 			return media.type ? (media.type == "audio/mp3") : false;
 		};
 
+
+        $scope.load = function($done) {
+          $timeout(function() {
+                    $http({method: 'JSONP', url: 'http://ajax.googleapis.com/ajax/services/feed/load?v=2.0&num=50&callback=JSON_CALLBACK&q=' + encodeURIComponent(paginaSelecionada.url)}).
+                    success(function(data, status, headers, config) {
+                    $scope.title = data.responseData.feed.title;
+                    $scope.description = data.responseData.feed.description;
+                    $scope.link = data.responseData.feed.link;
+                    $scope.feeds = data.responseData.feed.entries;
+                    // Save feeds to the local storage
+                    FeedStorage.save(data.responseData, CanalTitleIndex.getIndex());
+                    $scope.msg = "";
+                    }).
+                    error(function(data, status, headers, config) {
+                    $scope.msg = 'Poxa, aconteceu algo de errado:' + status; 
+                    })
+              .finally(function() {
+                $done();
+              });
+          }, 1000);
+        };
+
         $scope.refresh = function(index) {
         var selectedItem = $scope.items[index];
         FeedPluginData.selectedItem = selectedItem;
@@ -232,18 +278,6 @@ var app = {
         };
 
 
-
-        ons.createPopover('popover.html').then(function(popover) {
-        $scope.popover = popover;
-        });
-  
-        $scope.show = function(e, $event) {
-        $scope.popover.show($event.target);
-        };
-
-        $scope.hide = function(e, $event) {
-        $scope.popover.hide($event.target);
-        };
 
         
     });
@@ -280,7 +314,7 @@ var app = {
             //_self: Opens in the Cordova WebView if the URL is in the white list, otherwise it opens in the InAppBrowser.
             //_blank: Opens in the InAppBrowser.
             //_system: Opens in the system's web browser.
-            window.open($scope.item.link,'_blank');
+            window.open($scope.item.link,'_system');
         }
         
         $scope.shareFeed = function () {

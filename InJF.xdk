@@ -3,11 +3,11 @@
     "projectSettingsVersion": "1.2",
     "creationData": {
       "type": "Import",
-      "projectTypeName": "com.intel.xdk.projecttype.webapp",
+      "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "",
-      "projectGuid": "6c36e591-873c-4ed2-aa68-ca28074e6dd9",
-      "lastModifiedDate": 1436102652369,
-      "creationDate": 1436102652153
+      "projectGuid": "e782cd3f-dbe2-440d-bd5c-6f3b40c6862a",
+      "lastModifiedDate": 1436719299445,
+      "creationDate": 1436716680887
     },
     "sourceDirectory": "www",
     "cordovaPluginsDirectory": "plugins",
@@ -18,12 +18,57 @@
     "projectFiles": {},
     "projectDirectories": {},
     "libraries": [],
-    "cordovaPlugins": [],
+    "cordovaPlugins": [
+      {
+        "id": "org.apache.cordova.device",
+        "version": "0.2.13",
+        "selectedState": "Auto",
+        "data": {},
+        "paramvals": {},
+        "dependsOn": [],
+        "dependedBy": []
+      },
+      {
+        "id": "org.apache.cordova.splashscreen",
+        "version": "0.3.5",
+        "selectedState": "Auto",
+        "data": {},
+        "paramvals": {},
+        "dependsOn": [],
+        "dependedBy": []
+      },
+      {
+        "id": "org.apache.cordova.vibration",
+        "version": "0.3.12",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {},
+        "dependsOn": [],
+        "dependedBy": []
+      },
+      {
+        "id": "org.apache.cordova.dialogs",
+        "version": "0.2.11",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {},
+        "dependsOn": [],
+        "dependedBy": []
+      },
+      {
+        "id": "nl.x-services.plugins.socialsharing",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {},
+        "dependsOn": [],
+        "dependedBy": []
+      }
+    ],
     "serviceMethods": [],
     "buildConfigurations": {
       "Android": {
         "platform_": "android",
-        "runtime_": "W3C on Cordova",
+        "runtime_": "Cordova 3.x",
         "name_": "Android",
         "preferences_": {
           "android-minSdkVersion": "10",
@@ -31,7 +76,7 @@
           "android-installLocation": "auto"
         },
         "isActive_": true,
-        "appName_": "sensation",
+        "appName_": "InJF",
         "appID_": "not.yet.specified",
         "appAccess_": [
           {
@@ -49,7 +94,7 @@
       },
       "Android-Crosswalk": {
         "platform_": "android",
-        "runtime_": "W3C on Crosswalk",
+        "runtime_": "Crosswalk with Cordova 3.x",
         "name_": "Android-Crosswalk",
         "preferences_": {
           "android-minSdkVersion": "14",
@@ -57,7 +102,7 @@
           "android-installLocation": "auto"
         },
         "isActive_": true,
-        "appName_": "sensation",
+        "appName_": "InJF",
         "appID_": "not.yet.specified",
         "appAccess_": [
           {
@@ -75,14 +120,14 @@
       },
       "iOS": {
         "platform_": "ios",
-        "runtime_": "W3C on Cordova",
+        "runtime_": "Cordova 3.x",
         "name_": "iOS",
         "preferences_": {
           "ios-target": "6",
           "ios-configuration": "adhoc"
         },
         "isActive_": true,
-        "appName_": "sensation",
+        "appName_": "InJF",
         "appID_": "not.yet.specified",
         "appAccess_": [
           {
@@ -99,11 +144,11 @@
       },
       "Windows8": {
         "platform_": "windows8",
-        "runtime_": "W3C on Cordova",
+        "runtime_": "Cordova 3.x",
         "name_": "Windows8",
         "preferences_": {},
         "isActive_": true,
-        "appName_": "sensation",
+        "appName_": "InJF",
         "appID_": "not.yet.specified",
         "appAccess_": [
           {
@@ -122,8 +167,8 @@
         "runtime_": "W3C",
         "name_": "WebApp",
         "preferences_": {},
-        "isActive_": true,
-        "appName_": "sensation",
+        "isActive_": false,
+        "appName_": "InJF",
         "appID_": "not.yet.specified",
         "appAccess_": [
           {
@@ -141,8 +186,8 @@
         "runtime_": "W3C on Firefox OS",
         "name_": "Firefox",
         "preferences_": {},
-        "isActive_": true,
-        "appName_": "sensation",
+        "isActive_": false,
+        "appName_": "InJF",
         "appID_": "not.yet.specified",
         "appAccess_": [
           {
@@ -160,8 +205,8 @@
         "runtime_": "W3C on Chrome OS",
         "name_": "Chrome",
         "preferences_": {},
-        "isActive_": true,
-        "appName_": "sensation",
+        "isActive_": false,
+        "appName_": "InJF",
         "appID_": "not.yet.specified",
         "appAccess_": [
           {
@@ -179,8 +224,8 @@
         "runtime_": "W3C on Facebook",
         "name_": "Facebook",
         "preferences_": {},
-        "isActive_": true,
-        "appName_": "sensation",
+        "isActive_": false,
+        "appName_": "InJF",
         "appID_": "not.yet.specified",
         "appAccess_": [
           {

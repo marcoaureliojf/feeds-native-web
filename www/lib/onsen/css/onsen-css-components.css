@@ -147,7 +147,7 @@ h6 {
   -webkit-appearance: none;
   appearance: none;
   width: 51px;
-  height: 44px;
+  height: 52px;
   margin-top: -6px;
   top: 0px;
   left: 0px;
@@ -390,11 +390,11 @@ h6 {
   user-select: none;
   z-index: 2;
   display: block;
-  height: 44px;
+  height: 52px;
   padding-left: 0;
   padding-right: 0;
-  background: #fff;
-  color: #1f1f21;
+  background: #0063bf;
+  color: #fafafa;
   -webkit-box-shadow: none;
   box-shadow: none;
   border-bottom: 1px solid #ddd;
@@ -417,12 +417,12 @@ h6 {
   }
 }
 .navigation-bar__line-height {
-  line-height: 44px;
+  line-height: 52px;
   padding-bottom: 0;
   padding-top: 0;
 }
 .navigation-bar__bg {
-  background: #fff;
+  background: #0063bf;
 }
 .navigation-bar__item,
 .navigation-bar__left,
@@ -440,7 +440,7 @@ h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  height: 44px;
+  height: 52px;
   vertical-align: top;
   overflow: visible;
   display: block;
@@ -460,16 +460,16 @@ h6 {
 .navigation-bar__center {
   width: 46%;
   text-align: center;
-  line-height: 44px;
+  line-height: 52px;
   font-size: 17px;
   font-weight: 500;
-  color: #1f1f21;
+  color: #fafafa;
 }
 .navigation-bar__title {
-  line-height: 44px;
+  line-height: 52px;
   font-size: 17px;
   font-weight: 500;
-  color: #1f1f21;
+  color: #fafafa;
   margin: 0;
   padding: 0;
   overflow: visible;
@@ -694,11 +694,11 @@ h6 {
   user-select: none;
   z-index: 2;
   display: block;
-  height: 44px;
+  height: 52px;
   padding-left: 0;
   padding-right: 0;
-  background: #fff;
-  color: #1f1f21;
+  background: #0063bf;
+  color: #fafafa;
   -webkit-box-shadow: none;
   box-shadow: none;
   font-weight: 400;
@@ -723,7 +723,7 @@ h6 {
   }
 }
 .bottom-bar__line-height {
-  line-height: 44px;
+  line-height: 52px;
   padding-bottom: 0;
   padding-top: 0;
 }
@@ -1335,15 +1335,15 @@ h6 {
   appearance: none;
 }
 .button-bar__item:first-child > .button-bar__button {
-  border-left: 1px solid rgba(18,114,224,0.77);
-  border-right: 1px solid rgba(18,114,224,0.77);
+  border-left: 1px solid #468ac2;
+  border-right: 1px solid #468ac2;
   -webkit-border-top-left-radius: 4px;
   border-top-left-radius: 4px;
   -webkit-border-bottom-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
 .button-bar__item:last-child > .button-bar__button {
-  border-right: 1px solid rgba(18,114,224,0.77);
+  border-right: 1px solid #468ac2;
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
   -webkit-border-bottom-right-radius: 4px;
@@ -1358,11 +1358,11 @@ h6 {
   -webkit-border-radius: inherit;
   border-radius: inherit;
   background-color: transparent;
-  color: rgba(18,114,224,0.77);
-  border: 0px solid rgba(18,114,224,0.77);
-  border-top: 1px solid rgba(18,114,224,0.77);
-  border-bottom: 1px solid rgba(18,114,224,0.77);
-  border-right: 1px solid rgba(18,114,224,0.77);
+  color: #468ac2;
+  border: 0px solid #468ac2;
+  border-top: 1px solid #468ac2;
+  border-bottom: 1px solid #468ac2;
+  border-right: 1px solid #468ac2;
   font-weight: 400;
   padding: 0 8px;
   height: 27px;
@@ -1379,11 +1379,11 @@ h6 {
 }
 .button-bar__button:active,
 :active + .button-bar__button {
-  background-color: rgba(18,114,224,0.2);
-  border: 0px solid rgba(18,114,224,0.77);
-  border-top: 1px solid rgba(18,114,224,0.77);
-  border-bottom: 1px solid rgba(18,114,224,0.77);
-  border-right: 1px solid rgba(18,114,224,0.77);
+  background-color: rgba(70,138,194,0.2);
+  border: 0px solid #468ac2;
+  border-top: 1px solid #468ac2;
+  border-bottom: 1px solid #468ac2;
+  border-right: 1px solid #468ac2;
   height: 27px;
   line-height: 27px;
   font-size: 13px;
@@ -1395,7 +1395,7 @@ h6 {
 }
 .button-bar__item.active > .button-bar__button,
 :checked + .button-bar__button {
-  background-color: rgba(18,114,224,0.77);
+  background-color: #468ac2;
   color: #fff;
   -webkit-transition: none;
   -moz-transition: none;
@@ -1708,14 +1708,14 @@ h6 {
       <label class="tab-bar__item">
         <input type="radio" name="tab-bar-b">
         <button class="tab-bar__button">
-          <i class="tab-bar__icon ion-ios7-cloud-outline"></i>
+          <i class="tab-bar__icon ion-ios-cloud-outline"></i>
         </button>
       </label>
 
       <label class="tab-bar__item">
         <input type="radio" name="tab-bar-b">
         <button class="tab-bar__button">
-          <i class="tab-bar__icon ion-ios7-pie"></i>
+          <i class="tab-bar__icon ion-ios-pie"></i>
         </button>
       </label>
     </div>
@@ -1891,7 +1891,7 @@ h6 {
   font-size: 17px;
   padding: 4px 10px;
   letter-spacing: 0;
-  color: rgba(38,100,171,0.81);
+  color: #fff;
   text-shadow: 0 1px none;
   vertical-align: baseline;
   background-color: rgba(0,0,0,0);
@@ -1916,7 +1916,8 @@ h6 {
   transition: none;
   opacity: 0.2;
 }
-.toolbar-button:disabled {
+.toolbar-button:disabled,
+.toolbar-button[disabled] {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
@@ -1939,7 +1940,7 @@ h6 {
   transition: none;
 }
 .toolbar-button--outline {
-  border: 1px solid rgba(38,100,171,0.81);
+  border: 1px solid #fff;
   margin: auto 8px;
   padding-left: 6px;
   padding-right: 6px;
@@ -2105,8 +2106,8 @@ h6 {
   opacity: 0;
 }
 .checkbox > input[type="checkbox"]:focus + .checkbox__checkmark:before {
-  -webkit-box-shadow: var-box-shadow--cta;
-  box-shadow: var-box-shadow--cta;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .checkbox > input[type="checkbox"]:disabled + .checkbox__checkmark {
   opacity: 0.3;
@@ -2275,8 +2276,8 @@ h6 {
 }
 .checkbox--noborder > input[type="checkbox"]:focus + .checkbox__checkmark:before {
   border: none;
-  -webkit-box-shadow: var-box-shadow--cta;
-  box-shadow: var-box-shadow--cta;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .checkbox--noborder > input[type="checkbox"]:disabled + .checkbox__checkmark {
   opacity: 0.3;
@@ -2374,8 +2375,8 @@ h6 {
   height: 24px;
   background: transparent;
   border: none;
-  -webkit-border-radius: var-border-radius--checkbox;
-  border-radius: var-border-radius--checkbox;
+  -webkit-border-radius: 16px;
+  border-radius: 16px;
   left: 0;
 }
 .radio-button__checkmark {
@@ -2552,15 +2553,15 @@ h6 {
   border-bottom: 1px solid #ddd;
   color: #1f1f21;
   background-color: transparent;
-  min-height: 44px;
-  line-height: 44px;
+  min-height: 52px;
+  line-height: 52px;
 }
 .list__item--no-padding {
   padding: 0;
 }
 .list__item__line-height,
 .list__item--line-height {
-  line-height: 44px;
+  line-height: 52px;
 }
 .list__item_active:active {
   background-color: #d9d9d9;
@@ -2794,7 +2795,7 @@ h6 {
   height: 100%;
   padding: 0;
   margin: 0;
-  line-height: 44px;
+  line-height: 52px;
 }
 .radio-button--list-item__checkmark {
   margin-top: 10px;
@@ -2825,7 +2826,7 @@ h6 {
   height: 100%;
   padding: 0;
   margin: 0;
-  line-height: 44px;
+  line-height: 52px;
 }
 .checkbox--list-item__checkmark {
   margin-top: 10px;
@@ -3035,7 +3036,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   color: #999;
 }
 .text-input:invalid {
-  border: 1px solid var-input-invalid-border-color;
+  border: 1px solid #ddd;
   color: #1f1f21;
 }
 /* topdoc
@@ -3103,7 +3104,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   background-color: transparent;
 }
 .text-input--transparent:invalid {
-  border: 1px solid var-input-invalid-border-color;
+  border: 1px solid #ddd;
   color: #1f1f21;
   border: none;
   background-color: transparent;
@@ -3175,11 +3176,11 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   background-color: transparent;
 }
 .text-input--underbar:invalid {
-  border: 1px solid var-input-invalid-border-color;
+  border: 1px solid #ddd;
   color: #1f1f21;
   border: none;
   background-color: transparent;
-  border-bottom: 1px solid var-input-invalid-border-color;
+  border-bottom: 1px solid #ddd;
 }
 /* topdoc
   name: Textarea
@@ -3212,7 +3213,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   resize: none;
   outline: none;
   padding: 5px 5px 5px 5px;
-  font-size: var-font-size--text-input;
+  font-size: 15px;
   font-weight: 400;
   -webkit-border-radius: 4px;
   border-radius: 4px;
@@ -3267,7 +3268,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   padding: 5px 5px 5px 5px;
   padding-left: 0;
   padding-right: 0;
-  font-size: var-font-size--text-input;
+  font-size: 15px;
   font-weight: 400;
   -webkit-border-radius: 4px;
   border-radius: 4px;
@@ -3488,10 +3489,10 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   width: 100%;
   background-color: transparent;
   text-align: center;
-  height: 44px;
-  line-height: 44px;
+  height: 52px;
+  line-height: 52px;
   outline: none;
-  color: rgba(24,103,194,0.81);
+  color: rgba(252,252,252,0.81);
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .alert-dialog-button {
@@ -3727,7 +3728,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   min-height: 100px;
 }
 .popover__content {
-  background-color: #fff;
+  background-color: rgba(255,255,255,NaN);
   -webkit-border-radius: 8px;
   border-radius: 8px;
   -webkit-box-shadow: 0 2px 16px rgba(0,0,0,0.1);
@@ -3735,6 +3736,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   color: #1f1f21;
   overflow: hidden;
   min-height: 100px;
+  height: 100%;
 }
 .popover__content > * {
   overflow: hidden;
@@ -3750,10 +3752,10 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   -o-transform-origin: 50% 50% 0;
   transform-origin: 50% 50% 0;
   background-color: transparent;
-  background-image: -webkit-linear-gradient(45deg, #fff, #fff 50%, transparent 50%);
-  background-image: -moz-linear-gradient(45deg, #fff, #fff 50%, transparent 50%);
-  background-image: -o-linear-gradient(45deg, #fff, #fff 50%, transparent 50%);
-  background-image: linear-gradient(45deg, #fff, #fff 50%, transparent 50%);
+  background-image: -webkit-linear-gradient(45deg, rgba(255,255,255,NaN), rgba(255,255,255,NaN) 50%, transparent 50%);
+  background-image: -moz-linear-gradient(45deg, rgba(255,255,255,NaN), rgba(255,255,255,NaN) 50%, transparent 50%);
+  background-image: -o-linear-gradient(45deg, rgba(255,255,255,NaN), rgba(255,255,255,NaN) 50%, transparent 50%);
+  background-image: linear-gradient(45deg, rgba(255,255,255,NaN), rgba(255,255,255,NaN) 50%, transparent 50%);
   -webkit-border-radius: 0 0 0 4px;
   border-radius: 0 0 0 4px;
   -webkit-transform: rotate(-45deg);
@@ -3777,10 +3779,10 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   -o-transform-origin: 50% 50% 0;
   transform-origin: 50% 50% 0;
   background-color: transparent;
-  background-image: -webkit-linear-gradient(45deg, #fff, #fff 50%, transparent 50%);
-  background-image: -moz-linear-gradient(45deg, #fff, #fff 50%, transparent 50%);
-  background-image: -o-linear-gradient(45deg, #fff, #fff 50%, transparent 50%);
-  background-image: linear-gradient(45deg, #fff, #fff 50%, transparent 50%);
+  background-image: -webkit-linear-gradient(45deg, rgba(255,255,255,NaN), rgba(255,255,255,NaN) 50%, transparent 50%);
+  background-image: -moz-linear-gradient(45deg, rgba(255,255,255,NaN), rgba(255,255,255,NaN) 50%, transparent 50%);
+  background-image: -o-linear-gradient(45deg, rgba(255,255,255,NaN), rgba(255,255,255,NaN) 50%, transparent 50%);
+  background-image: linear-gradient(45deg, rgba(255,255,255,NaN), rgba(255,255,255,NaN) 50%, transparent 50%);
   -webkit-border-radius: 0 0 0 4px;
   border-radius: 0 0 0 4px;
   -webkit-transform: rotate(135deg);
@@ -3804,10 +3806,10 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   -o-transform-origin: 50% 50% 0;
   transform-origin: 50% 50% 0;
   background-color: transparent;
-  background-image: -webkit-linear-gradient(45deg, #fff, #fff 50%, transparent 50%);
-  background-image: -moz-linear-gradient(45deg, #fff, #fff 50%, transparent 50%);
-  background-image: -o-linear-gradient(45deg, #fff, #fff 50%, transparent 50%);
-  background-image: linear-gradient(45deg, #fff, #fff 50%, transparent 50%);
+  background-image: -webkit-linear-gradient(45deg, rgba(255,255,255,NaN), rgba(255,255,255,NaN) 50%, transparent 50%);
+  background-image: -moz-linear-gradient(45deg, rgba(255,255,255,NaN), rgba(255,255,255,NaN) 50%, transparent 50%);
+  background-image: -o-linear-gradient(45deg, rgba(255,255,255,NaN), rgba(255,255,255,NaN) 50%, transparent 50%);
+  background-image: linear-gradient(45deg, rgba(255,255,255,NaN), rgba(255,255,255,NaN) 50%, transparent 50%);
   -webkit-border-radius: 0 0 0 4px;
   border-radius: 0 0 0 4px;
   -webkit-transform: rotate(45deg);
@@ -3831,10 +3833,10 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   -o-transform-origin: 50% 50% 0;
   transform-origin: 50% 50% 0;
   background-color: transparent;
-  background-image: -webkit-linear-gradient(45deg, #fff, #fff 50%, transparent 50%);
-  background-image: -moz-linear-gradient(45deg, #fff, #fff 50%, transparent 50%);
-  background-image: -o-linear-gradient(45deg, #fff, #fff 50%, transparent 50%);
-  background-image: linear-gradient(45deg, #fff, #fff 50%, transparent 50%);
+  background-image: -webkit-linear-gradient(45deg, rgba(255,255,255,NaN), rgba(255,255,255,NaN) 50%, transparent 50%);
+  background-image: -moz-linear-gradient(45deg, rgba(255,255,255,NaN), rgba(255,255,255,NaN) 50%, transparent 50%);
+  background-image: -o-linear-gradient(45deg, rgba(255,255,255,NaN), rgba(255,255,255,NaN) 50%, transparent 50%);
+  background-image: linear-gradient(45deg, rgba(255,255,255,NaN), rgba(255,255,255,NaN) 50%, transparent 50%);
   -webkit-border-radius: 0 0 0 4px;
   border-radius: 0 0 0 4px;
   -webkit-transform: rotate(225deg);

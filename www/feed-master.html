@@ -1,19 +1,30 @@
 
 <ons-page ng-controller="FeedPluginMasterController" ng-init="init()">
     
+
+
     <ons-toolbar>
     <div class="left">
             <ons-toolbar-button ng-click="menu.toggle()">
                 <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
             </ons-toolbar-button>
     </div>
-    <div class="center" ng-bind-html="title" size="70%" fixed-width="true"></div>
+    <div class="center" ng-bind-html="title" size="80%" fixed-width="false"></div>
     <div class="right">
-            <ons-toolbar-button ng-click="show(this, $event)">
+            <ons-toolbar-button>
                 <ons-icon icon="ion-android-more" size="20px" fixed-width="false" ></ons-icon>
             </ons-toolbar-button>
     </div>
     </ons-toolbar>
+
+    <!--Pull to refresh item-->
+    <ons-pull-hook ng-action="load($done)" var="loader">
+          <span ng-switch="loader.getCurrentState()">
+            <span ng-switch-when="initial"><ons-icon size="35px" icon="ion-arrow-down-a"></ons-icon>Puxe para atualizar</span>
+            <span ng-switch-when="preaction"><ons-icon size="35px" icon="ion-arrow-up-a"></ons-icon>Solte para atualizar</span>
+            <span ng-switch-when="action"><ons-icon size="35px" spin="true" icon="ion-load-d"></ons-icon>Carregando...</span>
+          </span>
+    </ons-pull-hook>
     <!--Cabeçalho da lista de notícias-->    
     <ons-list-header ng-show="description" ng-bind-html="description" style="top:70px;" ></ons-list-header>
         
