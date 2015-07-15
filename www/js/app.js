@@ -81,6 +81,8 @@ var app = {
     document.addEventListener('deviceready', function() {
         angular.bootstrap(document, ['sensationFeedPlugin']);       
     }, false);
+
+
     
     // Feed Plugin: Categories Controller
     module.controller('FeedPluginCategoriesController', function($scope, $http, FeedPluginData) {
@@ -102,7 +104,7 @@ var app = {
     });
     
     // Feed Plugin: Category Controller
-    module.controller('FeedPluginCategoryController', function($scope, $http, FeedPluginData, FeedStorage, isRefresh, CanalTitleIndex) {
+    module.controller('FeedPluginCategoryController', function($scope, $timeout, $http, FeedPluginData, FeedStorage, isRefresh, CanalTitleIndex) {
 
 
         $http({method: 'GET', url: FeedPluginData.url}).
@@ -111,21 +113,41 @@ var app = {
         }).
         error(function(data, status, headers, config) {
 
-        });
+        });        
+
+        $scope.autoUpdate = function() {
+           $timeout(function() {
+                    $http({method: 'JSONP', url: 'http://ajax.googleapis.com/ajax/services/feed/load?v=2.0&num=50&callback=JSON_CALLBACK&q=' + encodeURIComponent("http://avozdaserra.com.br/rss")}).
+                    success(function(data, status, headers, config) {
+                    $scope.title = data.responseData.feed.title;
+                    $scope.description = data.responseData.feed.description;
+                    $scope.link = data.responseData.feed.link;
+                    $scope.feeds = data.responseData.feed.entries;
+                    // Save feeds to the local storage
+                    FeedStorage.save(data.responseData, CanalTitleIndex.getIndex());
+                    window.plugins.toast.showShortTop('Hello there!', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)});
+                    console.log('Recarregou!!');
+                    $scope.autoUpdate();
+                    }).
+                    error(function(data) {   
+                    console.log('Erro');
+                    $scope.autoUpdate(); 
+                    });
+          }, 60000);
+        };
 
         $scope.showDetail = function(index) {
         var selectedItem = $scope.items[index];
         FeedPluginData.selectedItem = selectedItem;
         isRefresh.setRefresh(false);
         CanalTitleIndex.setIndex(selectedItem.title);
-        $scope.ons.navigator.pushPage('feed-master.html', {title : selectedItem.title});
-        };
-  
-        $scope.fechar = function(){
-            if ($scope.ons.navigator.getCurrentPage()=='feed-master.html') {
-                $scope.ons.navigator.popPage('feed-master.html');
-            };
-            
+        var paginaAtual = $scope.ons.navigator.getCurrentPage();
+            if (paginaAtual.name =='feed-master.html') {
+                //$scope.ons.navigator.popPage();
+                $scope.ons.navigator.resetToPage('feed-master.html', {title : selectedItem.title, animation: "lift"});
+            }else{
+                $scope.ons.navigator.pushPage('feed-master.html', {title : selectedItem.title});
+            }
         }; 
 
 
@@ -264,6 +286,7 @@ var app = {
                     $scope.msg = 'Poxa, aconteceu algo de errado:' + status; 
                     })
               .finally(function() {
+                $scope.showAlert();
                 $done();
               });
           }, 1000);
@@ -277,8 +300,14 @@ var app = {
         $scope.ons.navigator.pushPage('feed-master.html', {title : selectedItem.title});
         };
 
-
-
+        $scope.showAlert = function() {
+        navigator.notification.alert(
+            'You are the winner!',  // message
+                        '',         // callback
+            'Game Over',            // title
+            'Done'                  // buttonName
+            );
+        };
         
     });
 

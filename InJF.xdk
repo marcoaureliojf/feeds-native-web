@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "",
       "projectGuid": "e782cd3f-dbe2-440d-bd5c-6f3b40c6862a",
-      "lastModifiedDate": 1436719299445,
+      "lastModifiedDate": 1436927186356,
       "creationDate": 1436716680887
     },
     "sourceDirectory": "www",
@@ -62,6 +62,20 @@
         "paramvals": {},
         "dependsOn": [],
         "dependedBy": []
+      },
+      {
+        "id": "nl.x-services.plugins.toast",
+        "version": "",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {},
+        "dependsOn": [],
+        "dependedBy": [],
+        "custom": "true",
+        "name": "cordovaToast",
+        "origin": "https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin",
+        "originType": "repo",
+        "sourceLocation": ""
       }
     ],
     "serviceMethods": [],
